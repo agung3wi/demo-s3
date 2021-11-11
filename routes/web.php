@@ -31,3 +31,12 @@ Route::get('/test', function () {
     ];
     return response(Storage::disk("s3")->get($fileName), 200, $headers);
 });
+
+Route::get('google', function () {
+    $dir = '/';
+    $recursive = false; // Get subdirectories also?
+    $contents = collect(Storage::disk('google')->listContents($dir, $recursive));
+
+    //return $contents->where('type', '=', 'dir'); // directories
+    return $contents->where('type', '=', 'file'); // files
+});

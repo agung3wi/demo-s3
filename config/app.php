@@ -1,5 +1,8 @@
 <?php
 
+use App\Providers\GoogleDriveAdapter;
+use App\Providers\GoogleDriveServiceProvider;
+
 return [
 
     /*
@@ -174,6 +177,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        GoogleDriveServiceProvider::class,
 
     ],
 
