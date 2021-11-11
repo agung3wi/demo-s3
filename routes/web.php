@@ -25,8 +25,9 @@ Route::get('/check-exists', function () {
 });
 
 Route::get('/test', function () {
+    $fileName = "Screenshot 2021-11-04 at 18.01.43.png";
     $headers = [
-        "Content-Type" => Storage::disk("s3")->mimeType("/abc.png")
+        "Content-Type" => Storage::disk("s3")->mimeType($fileName)
     ];
-    return response(Storage::disk("s3")->get("/abc.png"), 200, $headers);
+    return response(Storage::disk("s3")->get($fileName), 200, $headers);
 });
